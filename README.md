@@ -1,6 +1,5 @@
-# kwr-tool
-
-Empty project.
+# electron-starter-otto
+A React based electron-starter boiler plate. Fully customizable
 
 ## Building and running on localhost
 
