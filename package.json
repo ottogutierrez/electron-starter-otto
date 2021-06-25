@@ -1,6 +1,6 @@
 {
-  "name": "kwr-tool",
-  "version": "1.0.0",
+  "name": "electron-starter-otto",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/main.js",
   "keywords": [],
@@ -14,8 +14,8 @@
     "package": "electron-builder"
   },
   "build": {
-    "appId": "com.ottogutierrez.kwr-tool",
-    "productName": "Keyword Research Tool",
+    "appId": "com.ottogutierrez.electron-starter-otto",
+    "productName": "Electron Starter Otto",
     "copyright": "Copyright (c) 2021 Otto Gutierrez",
     "directories": {
       "buildResources": "dist/",
