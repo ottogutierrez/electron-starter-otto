@@ -2,7 +2,7 @@
 /* eslint global-require: off, no-console: off */
 
 const path = require("path");
-const { app, BrowserWindow, shell } = require("electron");
+const { app, BrowserWindow, shell, ipcMain } = require("electron");
 
 const createWindow = async () => {
   //   const RESOURCES_PATH = app.isPackaged
@@ -20,6 +20,7 @@ const createWindow = async () => {
     // icon: getAssetPath("icon.png"),
     webPreferences: {
       nodeIntegration: true,
+      contextIsolation: false,
     },
   });
 
@@ -80,10 +81,16 @@ app.on("activate", () => {
 });
 
 try {
-  require("electron-reload")(__dirname,{
-    electron:path.join(__dirname,"node_modules",".bin","electron")
+  require("electron-reload")(__dirname, {
+    electron: path.join(__dirname, "node_modules", ".bin", "electron"),
   });
 } catch (error) {
   alert("Error trying to reload the project");
 }
 
+//-----------ipcMain channels
+ipcMain.on("get-version", (event) => {
+  // Received the version request from the renderer application
+  // Send back the application version
+  event.sender.send("get-version-reply", app.getVersion());
+});
