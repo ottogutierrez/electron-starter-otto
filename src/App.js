@@ -17,6 +17,7 @@ const App = () => {
     <>
       <h1>Hello World!</h1>
       <p>Current version: {version}</p>
+      <p>This version implements auto updater</p>
     </>
   );
 };
