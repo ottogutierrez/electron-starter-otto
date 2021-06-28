@@ -3,7 +3,7 @@
 
 const path = require("path");
 const { app, BrowserWindow, shell, ipcMain } = require("electron");
-
+const { autoUpdater } = require("electron-updater");
 const createWindow = async () => {
   //   const RESOURCES_PATH = app.isPackaged
   //     ? path.join(process.resourcesPath, "assets")
@@ -87,6 +87,8 @@ try {
 } catch (error) {
   alert("Error trying to reload the project");
 }
+
+autoUpdater.checkForUpdatesAndNotify();
 
 //-----------ipcMain channels
 ipcMain.on("get-version", (event) => {
